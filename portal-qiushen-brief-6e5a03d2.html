@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球神直播 · 产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fa;
+            color: #1a3a3f;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 网格卡片背景装饰 */
+        .grid-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(0, 150, 136, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 150, 136, 0.04) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* hero 单元 */
+        .hero {
+            text-align: center;
+            margin: 3rem 0 4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            color: #00695c;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #437a74;
+            max-width: 700px;
+            margin: 0 auto 1.2rem;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #e0f2f1;
+            color: #00695c;
+            padding: 0.25rem 1rem;
+            border-radius: 24px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #b2dfdb;
+        }
+
+        /* 卡片通用设计 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+            margin: 2.5rem 0;
+        }
+
+        @media (min-width: 640px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 920px) {
+            .card-grid.cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 4px 12px rgba(0, 105, 92, 0.06);
+            border: 1px solid #d6e5e3;
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 105, 92, 0.10);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #00695c;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card p, .card li {
+            color: #2c5550;
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding: 0.25rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #26a69a;
+            font-weight: 600;
+        }
+
+        .accent-line {
+            width: 48px;
+            height: 3px;
+            background: #26a69a;
+            border-radius: 3px;
+            margin: 0.6rem 0 1rem;
+        }
+
+        /* 内联链接 */
+        a {
+            color: #00796b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        a:hover {
+            border-bottom-color: #00796b;
+        }
+
+        /* 使用建议区块特殊卡片 */
+        .tip-card {
+            background: #ffffff;
+            border-left: 5px solid #26a69a;
+            border-radius: 16px;
+            padding: 1.6rem 1.8rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 105, 92, 0.04);
+        }
+
+        .tip-card h3 {
+            color: #00695c;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tip-card p {
+            color: #2c5550;
+        }
+
+        /* faq 小单元 */
+        .faq-group {
+            background: #eef6f5;
+            border-radius: 24px;
+            padding: 1.8rem;
+            margin-top: 3rem;
+        }
+
+        .faq-group details {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #cde0dd;
+        }
+
+        .faq-group details:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-group summary {
+            font-weight: 600;
+            color: #00695c;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            font-size: 0.98rem;
+        }
+
+        .faq-group summary::-webkit-details-marker {
+            color: #26a69a;
+        }
+
+        .faq-group details p {
+            margin-top: 0.5rem;
+            padding-left: 0.6rem;
+            color: #2c5550;
+            font-size: 0.93rem;
+        }
+
+        /* 访问说明条 */
+        .notice-strip {
+            background: #e0f2f1;
+            border-radius: 40px;
+            padding: 1rem 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin: 2.8rem 0 1.5rem;
+            font-size: 0.95rem;
+            border: 1px solid #b2dfdb;
+        }
+
+        .notice-strip span {
+            color: #1f5c55;
+        }
+
+        .notice-strip .strong {
+            font-weight: 600;
+            color: #004d40;
+        }
+
+        /* footer */
+        .footer-note {
+            text-align: center;
+            margin-top: 3.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #d0e3e0;
+            font-size: 0.8rem;
+            color: #46807a;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .faq-group {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="grid-backdrop"></div>
+<main class="container">
+
+    <!-- Hero 区域，引入球神直播 -->
+    <section class="hero">
+        <h1>球神直播</h1>
+        <div class="subhead">一个围绕赛事内容构建的信息聚合与实时互动平台，兼顾内容观察与社区讨论场景。</div>
+        <div class="badge">站点定位 · 产品说明</div>
+    </section>
+
+    <!-- 摘要 + 可信说明卡片组（三列于大屏） -->
+    <div class="card-grid cols-3">
+        <div class="card">
+            <h3>📋 站点摘要</h3>
+            <div class="accent-line"></div>
+            <p><a href="https://portal-qiushen.com">球神直播</a> 以竞技赛事内容为核心，整合实时数据、图文信息与观众交流空间。不主动制造极端观点，以呈现清晰、有结构的赛事信息为主，适合希望获得多视角赛事内容的浏览者。</p>
+        </div>
+        <div class="card">
+            <h3>🔍 可信任观察</h3>
+            <div class="accent-line"></div>
+            <p>页面信息取自公开赛事数据与用户生成内容，平台对极端诱导性言辞有明确过滤机制。浏览时可保持一般信息甄别习惯，无需额外授权或注册即可浏览大部分频道。</p>
+        </div>
+        <div class="card">
+            <h3>⚙️ 功能侧重</h3>
+            <div class="accent-line"></div>
+            <ul>
+                <li>赛事排程与即时比分</li>
+                <li>主题讨论区与时间线</li>
+                <li>内容收藏与观看记录</li>
+                <li>多终端自适应界面</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 使用建议 + 场景 (独立卡片) -->
+    <div class="tip-card">
+        <h3>🧭 使用建议</h3>
+        <p>建议初次访问时先浏览「热门赛事」或「最新讨论」板块，以了解内容风格与社区氛围。如果想追踪特定联赛或队伍，可使用站内订阅功能，后续更新将集中展示在个人面板中。日常浏览时注意区分实时信息与赛后分析，两者内容性质不同但相互补充。</p>
+    </div>
+
+    <!-- 典型场景描述（双卡片） -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>📌 场景一 · 赛前观察</h3>
+            <div class="accent-line"></div>
+            <p>比赛开始前，<a href="https://portal-qiushen.com">球神直播</a> 提供阵容预测、近期交锋记录以及社区讨论热度。可快速评估多方观点，形成自己的赛前判断框架。</p>
+        </div>
+        <div class="card">
+            <h3>📌 场景二 · 赛后复盘</h3>
+            <div class="accent-line"></div>
+            <p>终场哨响后，平台汇集高光片段、技术统计以及不同视角的讨论帖。用户能在同一界面下对照数据与观点，适合深度爱好者或内容创作者寻找素材。</p>
+        </div>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <div class="notice-strip">
+        <span><span class="strong">访问说明</span> — 无需下载额外软件，主流浏览器均可直接访问。站内不存在强制弹窗或诱导绑定，所有功能入口均清晰标识。</span>
+        <span style="margin-left: 0.8rem; background: #b2dfdb; padding: 0.1rem 0.8rem; border-radius: 30px; font-size: 0.85rem;">🔒 标准加密连接</span>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-group">
+        <h3 style="color: #00695c; margin-bottom: 0.8rem; font-weight: 600;">❓ 常见疑问摘要</h3>
+        <details>
+            <summary>账号是否必须注册才能使用？</summary>
+            <p>大部分内容可以匿名浏览。发帖、收藏和个性化设置需要免费注册，注册仅需邮箱与昵称。</p>
+        </details>
+        <details>
+            <summary>赛事数据的更新频率如何？</summary>
+            <p>实时比赛数据延迟约 15–30 秒，赛果与统计在比赛结束后 2 分钟内更新。社区讨论内容实时发布。</p>
+        </details>
+        <details>
+            <summary>如何反馈内容或举报不实信息？</summary>
+            <p>每个帖子及评论区均设有「反馈」按钮，运营团队会在工作时段内处理。也可通过站内「帮助」页面提交说明。</p>
+        </details>
+        <details>
+            <summary>移动端体验是否完整？</summary>
+            <p>页面采用响应式设计，手机浏览器下自动适配布局，核心功能均可正常使用。推荐使用最新版 Chrome 或 Safari。</p>
+        </details>
+    </div>
+
+    <!-- 底部 / 再次自然嵌入链接 -->
+    <div class="footer-note">
+        <p>以上说明基于当前版本的 <a href="https://portal-qiushen.com">球神直播</a> 归纳整理，功能与界面以实际站点为准。</p>
+    </div>
+
+</main>
+</body>
+</html>
