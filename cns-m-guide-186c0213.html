@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>信息与说明 · 500彩票网官方</title>
+  <style>
+    /* 重置 & 基础 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f2f4f6;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #1f2b3a;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      border-left: 4px solid #3b6fa0;
+      padding-left: 0.8rem;
+      margin: 0 0 1rem 0;
+      color: #1f2b3a;
+    }
+    h3 {
+      font-weight: 500;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: #2c3e50;
+    }
+
+    /* 卡片模块 —— 浅灰背景 + 细柔阴影 */
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e7eaed;
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0, 20, 40, 0.07);
+    }
+
+    /* 目录式卡片网格 */
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 0.6rem;
+    }
+    .dir-item {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      border: 1px solid #e2e6eb;
+      transition: background 0.15s;
+    }
+    .dir-item strong {
+      display: block;
+      font-weight: 550;
+      color: #1f2f3f;
+      margin-bottom: 0.2rem;
+    }
+    .dir-item span {
+      font-size: 0.9rem;
+      color: #4a5b6b;
+    }
+
+    /* 提示块 */
+    .notice-box {
+      background: #f7f9fb;
+      border-left: 5px solid #3b6fa0;
+      padding: 1rem 1.4rem;
+      border-radius: 10px;
+      margin: 1.4rem 0 0.6rem;
+      color: #1f3347;
+      font-size: 0.96rem;
+    }
+
+    /* 链接 & 按钮风格 (融入句子) */
+    .inline-link {
+      color: #1e5b8a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #b9cddf;
+      transition: border 0.2s, background 0.1s;
+      padding: 0 0.1rem;
+    }
+    .inline-link:hover {
+      border-bottom-color: #1e5b8a;
+      background: #eef5fa;
+    }
+
+    /* 信息区 + FAQ 摘要 */
+    .info-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 1.2rem 0 0.8rem;
+    }
+    .info-col {
+      flex: 1 1 180px;
+    }
+    .info-col p {
+      font-size: 0.95rem;
+      color: #2a3b4e;
+      margin-bottom: 0.4rem;
+    }
+    .faq-mini {
+      margin-top: 0.6rem;
+      padding: 0.8rem 1rem;
+      background: #f5f7f9;
+      border-radius: 10px;
+      border: 1px solid #dee3e9;
+    }
+    .faq-mini dt {
+      font-weight: 550;
+      margin-top: 0.6rem;
+      color: #1e334b;
+    }
+    .faq-mini dd {
+      margin-left: 0.2rem;
+      font-size: 0.92rem;
+      color: #31475e;
+      border-bottom: 1px dashed #d8dee5;
+      padding-bottom: 0.5rem;
+    }
+    .faq-mini dd:last-of-type { border-bottom: none; }
+
+    hr {
+      border: none;
+      border-top: 1px solid #d9dfe5;
+      margin: 1.2rem 0 1.6rem;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 600px) {
+      body { padding: 1.2rem 1rem; }
+      .card { padding: 1.2rem; }
+      .directory-grid { grid-template-columns: 1fr 1fr; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO / 介绍区 (目录感入口) -->
+  <div class="card" style="padding-bottom: 1.2rem;">
+    <h1>📋 知识库入口 · 说明与稳定导航</h1>
+    <p style="font-size: 1.05rem; color: #2f4055; max-width: 700px; margin-bottom: 0.8rem;">
+      这里是围绕 <a href="https://cns-m-500.com" class="inline-link">500彩票网官方</a> 整理的信息目录与使用指引。
+      页面保持轻量、结构化，所有内容均来自公开说明和常见问题摘要，便于快速查阅。
+    </p>
+    <div class="notice-box">
+      ⚡ 提示：下方目录板块从不同角度概括了平台特点、使用场景及注意事项。
+      部分说明为通用性知识整理，具体以 <a href="https://cns-m-500.com" class="inline-link">500彩票网官方</a> 最新公示为准。
+    </div>
+  </div>
+
+  <!-- 目录感卡片：核心分区 -->
+  <div class="card">
+    <h2>📌 平台特色 · 分类速览</h2>
+    <div class="directory-grid">
+      <div class="dir-item"><strong>📊 数据面板</strong><span>赛事指数、历史走势、赔率对比</span></div>
+      <div class="dir-item"><strong>⚙️ 工具模块</strong><span>奖金试算、筛选器、自选提醒</span></div>
+      <div class="dir-item"><strong>📆 赛程中心</strong><span>今日/周末/焦点赛事时间线</span></div>
+      <div class="dir-item"><strong>📖 规则说明</strong><span>玩法介绍、兑奖须知、资金说明</span></div>
+      <div class="dir-item"><strong>🔐 账户安全</strong><span>实名认证、设备管理、隐私设置</span></div>
+      <div class="dir-item"><strong>🧩 帮助文档</strong><span>新手指引、常见故障、联系方式</span></div>
+    </div>
+    <p style="margin-top: 1.2rem; font-size: 0.95rem; color: #3c5168;">
+      以上目录覆盖常用功能与信息区域。如需直接进入主站，可点击 <a href="https://cns-m-500.com" class="inline-link">500彩票网官方</a> 首页。
+    </p>
+  </div>
+
+  <!-- 说明区 + 相关信息卡片 -->
+  <div class="card">
+    <h2>📄 使用说明 · 稳定入口</h2>
+    <div class="info-pair">
+      <div class="info-col">
+        <h3>🔍 访问与兼容</h3>
+        <p>建议使用 Chrome / Edge / Safari 最新版本，开启 JavaScript。移动端自适应布局，可直接通过浏览器访问 <a href="https://cns-m-500.com" class="inline-link">500彩票网官方</a>，无需额外App。</p>
+      </div>
+      <div class="info-col">
+        <h3>🧭 信息查询</h3>
+        <p>赛事数据、开奖结果、走势图表均可在站内对应栏目查看。部分页面需要登录后显示个性化内容，注册流程约2分钟。</p>
+      </div>
+      <div class="info-col">
+        <h3>🔄 数据更新</h3>
+        <p>指数和赛程实时刷新，开奖结果以国家体育总局彩票中心发布为准。如有延迟，可手动刷新页面或参考官方公告。</p>
+      </div>
+    </div>
+    <hr>
+    <h2 style="border-left-color: #6f8aa7;">📎 相关信息 & 提示</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.2rem;">
+      <div style="flex: 1; min-width: 150px;">
+        <ul style="list-style: none; padding-left: 0; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.3rem;">• 客服工作时间：工作日 9:00-21:00</li>
+          <li style="margin-bottom: 0.3rem;">• 资金提现一般 1-3 个工作日到账</li>
+          <li style="margin-bottom: 0.3rem;">• 未成年人及部分限制地区无法使用</li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 150px;">
+        <p style="font-size: 0.93rem; background: #eef2f7; padding: 0.4rem 0.9rem; border-radius: 20px;">
+          ⚠️ 理性参与，量力而行。任何平台都不保证收益，请以娱乐心态对待。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 提示区 + FAQ 摘要（合并在一个卡片） -->
+  <div class="card">
+    <h2>❓ 常见疑问 · 摘要</h2>
+    <dl class="faq-mini">
+      <dt>如何确认我访问的是正确站点？</dt>
+      <dd>请认准域名 <strong>cns-m-500.com</strong>，并核对页面底部备案/版权信息。直接使用 <a href="https://cns-m-500.com" class="inline-link">500彩票网官方</a> 链接进入是最稳妥的方式。</dd>
+
+      <dt>网站是否提供预测或稳赚方案？</dt>
+      <dd>不提供。所有赛事分析、走势图仅作为历史数据参考，不构成任何建议。任何承诺“必中”的信息均不属实。</dd>
+
+      <dt>忘记密码或账户异常怎么办？</dt>
+      <dd>登录页有“忘记密码”入口，按提示验证身份重置。若账户出现异常登录，请立即修改密码并联系客服处理。</dd>
+
+      <dt>页面加载异常或数据空白？</dt>
+      <dd>请先检查网络与浏览器设置，尝试清除缓存或切换网络。如持续异常，可通过站内反馈通道或客服邮箱描述问题。</dd>
+    </dl>
+    <div style="margin-top: 1rem; font-size: 0.92rem; color: #3a4d62; border-top: 1px solid #e0e5eb; padding-top: 1rem;">
+      📌 更多详细说明请访问 <a href="https://cns-m-500.com" class="inline-link">500彩票网官方</a> 的帮助中心或查阅页面内相关文档。
+    </div>
+  </div>
+
+  <!-- 底部极小说明（不是footer，只做点缀，不强制） -->
+  <div style="text-align: center; margin-top: 1.8rem; font-size: 0.8rem; color: #7a8a9b; border-top: 1px solid #dde2e8; padding-top: 1.2rem;">
+    本页面为静态知识索引 · 内容仅供参考 · 具体规则以 <a href="https://cns-m-500.com" style="color:#4a6a8a;text-decoration:none;border-bottom:1px dotted #abbacf;">500彩票网官方</a> 实时页面为准
+  </div>
+
+</div>
+</body>
+</html>
